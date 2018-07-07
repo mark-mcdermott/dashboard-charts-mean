@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IssueService } from '../../services/issue/issue.service';
+// import { IssueService } from '../../services/issue/issue.service';
+import { BloodpressureService } from '../../services/bloodpressure/bloodpressure.service';
 
 @Component({
   selector: 'app-list',
@@ -8,14 +9,14 @@ import { IssueService } from '../../services/issue/issue.service';
 })
 
 export  class  ListComponent  implements  OnInit {
-  private  issues:  Array<object> = [];
-  constructor(private issueService: IssueService) { }
+  private  bloodpressures:  Array<object> = [];
+  constructor(private bloodpressureService: BloodpressureService) { }
   ngOnInit() {
-      this.getIssues();
+      this.getBloodpressures();
   }
-  public  getIssues(){
-      this.issueService.getIssues().subscribe((data: Array<object>) => {
-          this.issues  =  data;
+  public getBloodpressures(){
+      this.bloodpressureService.getBloodpressures().subscribe((data: Array<object>) => {
+          this.bloodpressures  =  data;
       });
   }
 }
