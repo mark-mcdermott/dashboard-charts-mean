@@ -15,7 +15,7 @@ export  class  BloodPressureComponent  implements  OnInit {
   }
   public getBloodPressures(){
     this.bloodPressureService.getBloodPressures().subscribe((data: Array<object>) => {
-      console.log(data);
+      // console.log(data);
       this.bloodPressures = data;
     });
   }

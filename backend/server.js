@@ -20,14 +20,29 @@ connection.once('open', () => {
 });
 
 router.route('/bloodpressure').get((req, res) => {
-    BloodPressure.find((err, bloodPressure) => {
-        if (err)
-            console.log(err);
-        else
-            res.json(bloodPressure);
-    });
+
+  BloodPressure.find((err, bloodPressure) => {
+      if (err)
+        console.log(err);
+      else {
+        res.json(bloodPressure.sort(compare));
+      }
+  });
+
 });
 
 app.use('/', router);
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));
+
+
+
+/* sorting helper function */
+/* https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value-in-javascript */
+function compare(a,b) {
+  if (a.timestamp < b.timestamp)
+    return -1;
+  if (a.timestamp > b.timestamp)
+    return 1;
+  return 0;
+}
