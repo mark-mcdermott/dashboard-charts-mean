@@ -11,7 +11,7 @@ export class BloodPressureService {
   constructor(private http: HttpClient) {
   }
 
-  getBloodpressures() {
+  getBloodPressures() {
     return this.http.get(`${this.uri}/bloodpressure`);
   }
 

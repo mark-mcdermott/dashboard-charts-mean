@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BloodpressureService } from '../../services/bloodpressure/bloodpressure.service';
+import { BloodPressureService } from '../../services/blood-pressure/blood-pressure.service';
 
 @Component({
   selector: 'app-blood-pressure',
@@ -9,12 +9,12 @@ import { BloodpressureService } from '../../services/bloodpressure/bloodpressure
 
 export  class  BloodPressureComponent  implements  OnInit {
   private  bloodPressures:  Array<object> = [];
-  constructor(private bloodpressureService: BloodpressureService) { }
+  constructor(private bloodPressureService: BloodPressureService) { }
   ngOnInit() {
-    this.getBloodpressures();
+    this.getBloodPressures();
   }
-  public getBloodpressures(){
-    this.bloodpressureService.getBloodpressures().subscribe((data: Array<object>) => {
+  public getBloodPressures(){
+    this.bloodPressureService.getBloodPressures().subscribe((data: Array<object>) => {
       console.log(data);
       this.bloodPressures  =  data;
     });
