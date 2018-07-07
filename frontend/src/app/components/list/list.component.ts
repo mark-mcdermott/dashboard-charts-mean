@@ -6,11 +6,16 @@ import { IssueService } from '../../services/issue.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
 
-  constructor() { }
-
+export  class  ListComponent  implements  OnInit {
+  private  issues:  Array<object> = [];
+  constructor(private issueService: IssueService) { }
   ngOnInit() {
+      this.getIssues();
   }
-
+  public  getIssues(){
+      this.issueService.getIssues().subscribe((data: Array<object>) => {
+          this.issues  =  data;
+      });
+  }
 }
