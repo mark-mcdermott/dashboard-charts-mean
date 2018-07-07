@@ -6,21 +6,21 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ListComponent } from './components/list/list.component';
 import { BloodpressureComponent } from './components/bloodpressure/bloodpressure.component';
 
 import { BloodpressureService } from './services/bloodpressure/bloodpressure.service';
+import { ChartsComponent } from './components/charts/charts.component';
 
 const routes: Routes = [
-  { path: 'bloodpressure', component: BloodpressureComponent },
-  { path: '', redirectTo: '/bloodpressure', pathMatch: 'full'}
+  { path: '', component: ChartsComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    BloodpressureComponent
+    BloodpressureComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
