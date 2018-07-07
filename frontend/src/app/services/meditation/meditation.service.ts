@@ -4,15 +4,15 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class BloodPressureService {
+export class MeditationService {
 
   uri = 'http://localhost:4000';
 
   constructor(private http: HttpClient) {
   }
 
-  getBloodPressures() {
-    return this.http.get(`${this.uri}/blood-pressure`);
+  getMeditation() {
+    return this.http.get(`${this.uri}/meditation`);
   }
 
 }
