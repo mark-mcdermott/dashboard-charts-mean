@@ -20,15 +20,45 @@ connection.once('open', () => {
 });
 
 router.route('/bloodpressure').get((req, res) => {
-
   BloodPressure.find((err, bloodPressure) => {
-      if (err)
-        console.log(err);
-      else {
-        res.json(bloodPressure.sort(compare));
-      }
+      if (err) { console.log(err); }
+      else { res.json(bloodPressure.sort(compare)); }
   });
+});
 
+router.route('/drinks').get((req, res) => {
+  Drinks.find((err, drinks) => {
+      if (err) { console.log(err); }
+      else { res.json(drinks.sort(compare)); }
+  });
+});
+
+router.route('/heartrate').get((req, res) => {
+  HeartRate.find((err, heartRate) => {
+      if (err) { console.log(err); }
+      else { res.json(heartRate.sort(compare)); }
+  });
+});
+
+router.route('/meditation').get((req, res) => {
+  Meditation.find((err, meditation) => {
+      if (err) { console.log(err); }
+      else { res.json(meditation.sort(compare)); }
+  });
+});
+
+router.route('/sleep').get((req, res) => {
+  Sleep.find((err, sleep) => {
+      if (err) { console.log(err); }
+      else { res.json(sleep.sort(compare)); }
+  });
+});
+
+router.route('/weight').get((req, res) => {
+  Weight.find((err, weight) => {
+      if (err) { console.log(err); }
+      else { res.json(weight.sort(compare)); }
+  });
 });
 
 app.use('/', router);
