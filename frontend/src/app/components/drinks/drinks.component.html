@@ -1,0 +1,17 @@
+<div class="table-title">
+  <h3>Drinks</h3>
+</div>
+<table>
+  <tr>
+    <th>date</th>
+    <th>waters</th>
+    <th>coffees</th>
+    <th>beers</th>
+  </tr>
+  <tr *ngFor="let drink of drinks">
+    <td>{{drink.date}}</td>
+    <td>{{drink.waters}}</td>
+    <td>{{drink.coffees}}</td>
+    <td>{{drink.beers}}</td>
+  </tr>
+</table>

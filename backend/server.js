@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import BloodPressure from './models/BloodPressure';
+import Drink from './models/Drink';
 
 const app = express();
 const router = express.Router();
@@ -27,7 +28,7 @@ router.route('/bloodpressure').get((req, res) => {
 });
 
 router.route('/drinks').get((req, res) => {
-  Drinks.find((err, drinks) => {
+  Drink.find((err, drinks) => {
       if (err) { console.log(err); }
       else { res.json(drinks.sort(compare)); }
   });

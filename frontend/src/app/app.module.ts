@@ -10,6 +10,7 @@ import { BloodPressureComponent } from './components/blood-pressure/blood-pressu
 
 import { BloodPressureService } from './services/blood-pressure/blood-pressure.service';
 import { ChartsComponent } from './components/charts/charts.component';
+import { DrinksComponent } from './components/drinks/drinks.component';
 
 const routes: Routes = [
   { path: '', component: ChartsComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     BloodPressureComponent,
-    ChartsComponent
+    ChartsComponent,
+    DrinksComponent
   ],
   imports: [
     BrowserModule,
