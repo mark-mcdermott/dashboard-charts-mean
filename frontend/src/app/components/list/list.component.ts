@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { IssueService } from '../../services/issue/issue.service';
 import { BloodpressureService } from '../../services/bloodpressure/bloodpressure.service';
 
 @Component({

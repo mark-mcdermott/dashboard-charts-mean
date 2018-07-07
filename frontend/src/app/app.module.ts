@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListComponent } from './components/list/list.component';
 
-import { IssueService } from './services/issue/issue.service';
 import { BloodpressureService } from './services/bloodpressure/bloodpressure.service';
 
 const routes: Routes = [
@@ -28,7 +27,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [IssueService,BloodpressureService],
+  providers: [BloodpressureService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
