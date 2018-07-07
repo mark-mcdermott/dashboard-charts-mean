@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BloodpressureComponent } from './components/blood-pressure/blood-pressure.component';
+import { BloodPressureComponent } from './components/blood-pressure/blood-pressure.component';
 
 import { BloodpressureService } from './services/bloodpressure/bloodpressure.service';
 import { ChartsComponent } from './components/charts/charts.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BloodpressureComponent,
+    BloodPressureComponent,
     ChartsComponent
   ],
   imports: [

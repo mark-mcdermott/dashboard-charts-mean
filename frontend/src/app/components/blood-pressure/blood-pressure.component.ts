@@ -7,7 +7,7 @@ import { BloodpressureService } from '../../services/bloodpressure/bloodpressure
   styleUrls: ['./blood-pressure.component.css']
 })
 
-export  class  BloodpressureComponent  implements  OnInit {
+export  class  BloodPressureComponent  implements  OnInit {
   private  bloodPressures:  Array<object> = [];
   constructor(private bloodpressureService: BloodpressureService) { }
   ngOnInit() {
