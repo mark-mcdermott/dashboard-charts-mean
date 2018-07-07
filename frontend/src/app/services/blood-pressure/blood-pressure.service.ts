@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class BloodpressureService {
+export class BloodPressureService {
 
   uri = 'http://localhost:4000';
 

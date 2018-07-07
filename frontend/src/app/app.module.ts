@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BloodPressureComponent } from './components/blood-pressure/blood-pressure.component';
 
-import { BloodpressureService } from './services/bloodpressure/bloodpressure.service';
+import { BloodPressureService } from './services/blood-pressure/blood-pressure.service';
 import { ChartsComponent } from './components/charts/charts.component';
 
 const routes: Routes = [
@@ -29,7 +29,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [BloodpressureService],
+  providers: [BloodPressureService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
