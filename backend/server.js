@@ -3,7 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
-import Bloodpressure from './models/Bloodpressure';
+import BloodPressure from './models/BloodPressure';
 
 const app = express();
 const router = express.Router();
@@ -20,11 +20,11 @@ connection.once('open', () => {
 });
 
 router.route('/bloodpressure').get((req, res) => {
-    Bloodpressure.find((err, bloodpressure) => {
+    BloodPressure.find((err, bloodPressure) => {
         if (err)
             console.log(err);
         else
-            res.json(bloodpressure);
+            res.json(bloodPressure);
     });
 });
 

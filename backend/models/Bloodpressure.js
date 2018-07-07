@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-let Bloodpressure = new Schema({
+let BloodPressure = new Schema({
     _id: {type: String},
     timestamp: {type: String},
     date: {type: String},
@@ -10,4 +10,4 @@ let Bloodpressure = new Schema({
     comment: {type: String}
 });
 
-export default mongoose.model('Bloodpressure', Bloodpressure, 'bloodpressure');
+export default mongoose.model('BloodPressure', BloodPressure, 'bloodpressure');
