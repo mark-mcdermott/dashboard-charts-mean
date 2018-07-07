@@ -19,12 +19,12 @@ connection.once('open', () => {
     console.log('MongoDB database connection established successfully!');
 });
 
-router.route('/bloodpressures').get((req, res) => {
-    Bloodpressure.find((err, bloodpressures) => {
+router.route('/bloodpressure').get((req, res) => {
+    Bloodpressure.find((err, bloodpressure) => {
         if (err)
             console.log(err);
         else
-            res.json(bloodpressures);
+            res.json(bloodpressure);
     });
 });
 

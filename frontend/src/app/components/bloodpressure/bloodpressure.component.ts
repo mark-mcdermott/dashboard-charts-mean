@@ -8,14 +8,15 @@ import { BloodpressureService } from '../../services/bloodpressure/bloodpressure
 })
 
 export  class  BloodpressureComponent  implements  OnInit {
-  private  bloodpressures:  Array<object> = [];
+  private  bloodpressure:  Array<object> = [];
   constructor(private bloodpressureService: BloodpressureService) { }
   ngOnInit() {
-      this.getBloodpressures();
+    this.getBloodpressures();
   }
   public getBloodpressures(){
-      this.bloodpressureService.getBloodpressures().subscribe((data: Array<object>) => {
-          this.bloodpressures  =  data;
-      });
+    this.bloodpressureService.getBloodpressures().subscribe((data: Array<object>) => {
+      console.log(data);
+      this.bloodpressure  =  data;
+    });
   }
 }

@@ -12,7 +12,7 @@ export class BloodpressureService {
   }
 
   getBloodpressures() {
-    return this.http.get(`${this.uri}/bloodpressures`);
+    return this.http.get(`${this.uri}/bloodpressure`);
   }
 
 }
