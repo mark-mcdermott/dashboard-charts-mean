@@ -29,8 +29,6 @@ In the third tab:
 
 `ng serve`
 
-Then go to localhost:4200, the frontend should be up.
-
 In Robo 3T, add a `issues` db and add an `issues` collection to it and add a couple issues to it like these:
 
 ```
@@ -52,6 +50,4 @@ In Robo 3T, add a `issues` db and add an `issues` collection to it and add a cou
 }
 ```
 
-Right now you can tell the backend is working from Postman:
-
-In Postman, do a Get request on http://localhost:4000/issues and you
+Now go to http://localhost:4200/list and you should see the data populating the page.
