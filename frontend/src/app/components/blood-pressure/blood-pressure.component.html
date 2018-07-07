@@ -1,16 +1,13 @@
-<table  style="width:100%">
-<tr>
-    <th>_id</th>
-    <th>timestamp</th>
+<div class="table-title">
+  <h3>Blood Pressure</h3>
+</div>
+<table>
+  <tr>
     <th>date</th>
     <th>pressure</th>
-    <th>comment</th>
-</tr>
-<tr *ngFor="let bloodPressure of bloodPressures">
-    <td>{{bloodPressure._id}}</td>
-    <td>{{bloodPressure.timestamp}}</td>
+  </tr>
+  <tr *ngFor="let bloodPressure of bloodPressures">
     <td>{{bloodPressure.date}}</td>
     <td>{{bloodPressure.pressure}}</td>
-    <td>{{bloodPressure.comment}}</td>
-</tr>
+  </tr>
 </table>
