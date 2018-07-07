@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BloodpressureService } from '../../services/bloodpressure/bloodpressure.service';
 
 @Component({
-  selector: 'app-bloodpressure',
+  selector: 'app-blood-pressure',
   templateUrl: './blood-pressure.component.html',
   styleUrls: ['./blood-pressure.component.css']
 })
