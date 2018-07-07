@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BloodpressureComponent } from './bloodpressure.component';
+import { BloodpressureComponent } from './blood-pressure.component';
 
 describe('BloodpressureComponent', () => {
   let component: BloodpressureComponent;
