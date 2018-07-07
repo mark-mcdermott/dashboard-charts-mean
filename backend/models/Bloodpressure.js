@@ -10,4 +10,4 @@ let Bloodpressure = new Schema({
     comment: {type: String}
 });
 
-export default mongoose.model('Bloodpressure', Bloodpressure);
+export default mongoose.model('Bloodpressure', Bloodpressure, 'bloodpressure');
