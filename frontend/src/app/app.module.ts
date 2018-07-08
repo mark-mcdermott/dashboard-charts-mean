@@ -9,6 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsComponent } from './components/charts/charts.component';
 import { BloodPressureComponent } from './components/blood-pressure/blood-pressure.component';
 import { DrinksComponent } from './components/drinks/drinks.component';
+import { HeartRateComponent } from './components/heart-rate/heart-rate.component';
+import { MeditationComponent } from './components/meditation/meditation.component';
+import { SleepComponent } from './components/sleep/sleep.component';
+import { WeightComponent } from './components/weight/weight.component';
 
 import { BloodPressureService } from './services/blood-pressure/blood-pressure.service';
 import { DrinksService } from './services/drinks/drinks.service';
@@ -28,7 +32,11 @@ const routes: Routes = [
     AppComponent,
     BloodPressureComponent,
     ChartsComponent,
-    DrinksComponent
+    DrinksComponent,
+    HeartRateComponent,
+    MeditationComponent,
+    SleepComponent,
+    WeightComponent
   ],
   imports: [
     BrowserModule,

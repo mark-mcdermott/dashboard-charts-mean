@@ -1,0 +1,13 @@
+<div class="table-title">
+  <h3>Sleep</h3>
+</div>
+<table>
+  <tr>
+    <th>date</th>
+    <th>hours</th>
+  </tr>
+  <tr *ngFor="let sleep of sleeps">
+    <td>{{sleep.datetime | date : "M/d/yyyy"}}</td>
+    <td>{{sleep.hours}}</td>
+  </tr>
+</table>

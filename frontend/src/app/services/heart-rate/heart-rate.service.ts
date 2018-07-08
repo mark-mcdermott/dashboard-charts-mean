@@ -11,7 +11,7 @@ export class HeartRateService {
   constructor(private http: HttpClient) {
   }
 
-  getHeartRates() {
+  getHeartRates() { 
     return this.http.get(`${this.uri}/heart-rate`);
   }
 

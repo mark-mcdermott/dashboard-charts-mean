@@ -11,7 +11,7 @@ export class WeightService {
   constructor(private http: HttpClient) {
   }
 
-  getWeight() {
+  getWeights() {
     return this.http.get(`${this.uri}/weight`);
   }
 

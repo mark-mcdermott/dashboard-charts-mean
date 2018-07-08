@@ -15,7 +15,7 @@ export  class  DrinksComponent  implements  OnInit {
   }
   public getDrinks(){
     this.drinksService.getDrinks().subscribe((data: Array<object>) => {
-      console.log(data);
+      // console.log(data);
       this.drinks = data;
     });
   }

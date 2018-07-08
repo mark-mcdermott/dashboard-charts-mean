@@ -1,0 +1,13 @@
+<div class="table-title">
+  <h3>Meditation</h3>
+</div>
+<table>
+  <tr>
+    <th>date</th>
+    <th>minutes</th>
+  </tr>
+  <tr *ngFor="let meditation of meditations">
+    <td>{{meditation.datetime | date : "M/d/yyyy"}}</td>
+    <td>{{meditation.minutes}}</td>
+  </tr>
+</table>

@@ -11,7 +11,7 @@ export class MeditationService {
   constructor(private http: HttpClient) {
   }
 
-  getMeditation() {
+  getMeditations() { 
     return this.http.get(`${this.uri}/meditation`);
   }
 

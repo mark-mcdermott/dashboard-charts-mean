@@ -5,6 +5,10 @@ import mongoose from 'mongoose';
 
 import BloodPressure from './models/BloodPressure';
 import Drink from './models/Drink';
+import HeartRate from './models/HeartRate';
+import Meditation from './models/Meditation';
+import Sleep from './models/Sleep';
+import Weight from './models/Weight';
 
 const app = express();
 const router = express.Router();
@@ -20,7 +24,7 @@ connection.once('open', () => {
     console.log('MongoDB database connection established successfully!');
 });
 
-router.route('/bloodpressure').get((req, res) => {
+router.route('/blood-pressure').get((req, res) => {
   BloodPressure.find((err, bloodPressure) => {
       if (err) { console.log(err); }
       else { res.json(bloodPressure.sort(compare)); }
@@ -34,10 +38,10 @@ router.route('/drinks').get((req, res) => {
   });
 });
 
-router.route('/heartrate').get((req, res) => {
-  HeartRate.find((err, heartRate) => {
+router.route('/heart-rate').get((req, res) => {
+  HeartRate.find((err, heartRates) => {
       if (err) { console.log(err); }
-      else { res.json(heartRate.sort(compare)); }
+      else { res.json(heartRates.sort(compare)); }
   });
 });
 

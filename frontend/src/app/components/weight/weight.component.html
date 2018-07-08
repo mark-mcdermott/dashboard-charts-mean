@@ -1,0 +1,13 @@
+<div class="table-title">
+  <h3>Weight</h3>
+</div>
+<table>
+  <tr>
+    <th>date</th>
+    <th>weight</th>
+  </tr>
+  <tr *ngFor="let weight of weights">
+    <td>{{weight.datetime  | date : "M/d/yyyy"}}</td>
+    <td>{{weight.weight | number:'1.0-0' }}</td>
+  </tr>
+</table>

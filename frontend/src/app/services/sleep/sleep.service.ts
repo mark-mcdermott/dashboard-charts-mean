@@ -10,8 +10,8 @@ export class SleepService {
 
   constructor(private http: HttpClient) {
   }
-
-  getSleep() {
+ 
+  getSleeps() {
     return this.http.get(`${this.uri}/sleep`);
   }
 

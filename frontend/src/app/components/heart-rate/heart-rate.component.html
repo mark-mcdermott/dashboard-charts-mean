@@ -1,0 +1,19 @@
+<div class="table-title">
+  <h3>Heart Rate</h3>
+</div>
+<table>
+  <tr>
+    <th>date</th>
+    <th>time</th>
+    <th>average</th>
+    <th>min</th>
+    <th>max</th>
+  </tr>
+  <tr *ngFor="let heartRate of heartRates">
+    <td>{{heartRate.date}}</td>
+    <td>{{heartRate.start}}</td>
+    <td>{{heartRate.average}}</td>
+    <td>{{heartRate.min}}</td>
+    <td>{{heartRate.max}}</td>
+  </tr>
+</table>
