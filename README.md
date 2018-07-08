@@ -19,7 +19,13 @@ In the second tab:
 
 `npm install`
 
-`npm run dev`
+`cd data`
+
+`sudo ./importdata.sh`
+
+`cd ..`
+
+`node server.js`
 
 In the third tab:
 
@@ -28,26 +34,5 @@ In the third tab:
 `npm install`
 
 `ng serve`
-
-In Robo 3T, add a `issues` db and add an `issues` collection to it and add a couple issues to it like these:
-
-```
-{
-    "status": "Open",
-    "_id": "5b3fb6f3244ae1fe37747447",
-    "title": "First issue",
-    "responsible": "Mark",
-    "description": "first issue",
-    "severity": "Medium"
-},
-{
-    "status": "Open",
-    "_id": "5b3fb710244ae1fe37747448",
-    "title": "Second issue",
-    "responsible": "Mark",
-    "description": "second issue",
-    "severity": "Danger"
-}
-```
 
 Now go to http://localhost:4200/list and you should see the data populating the page.
