@@ -1,6 +1,17 @@
-/* styles from https://codepen.io/alassetter/pen/cyrfB */
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+app-blood-pressure,
+app-drinks,
+app-heart-rate,
+app-meditation,
+app-sleep,
+app-weight {
+  float: left;
+}
+
+
+
+/* styles (mostly table styles) from https://codepen.io/alassetter/pen/cyrfB */
 
 body {
   background-color: #3e94ec;
@@ -14,7 +25,7 @@ body {
 div.table-title {
   display: block;
   margin: auto;
-  max-width: 600px;
+  /* max-width: 600px; */
   padding:5px;
   width: 100%;
 }
@@ -27,11 +38,15 @@ div.table-title {
    font-family: "Roboto", helvetica, arial, sans-serif;
    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
    text-transform:uppercase;
+   text-align: left;
 }
 
 
 /*** Table Styles **/
-table { margin: 0 20px 20px; }
+table {
+  margin: 0 20px 20px;
+  border-spacing: 0;
+}
 
 .table-fill {
   background: white;
@@ -75,11 +90,11 @@ tr {
   text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 }
 
-tr:hover td {
+/* tr:hover td {
   background:#4E5066;
   color:#FFFFFF;
   border-top: 1px solid #22262e;
-}
+} */
 
 tr:first-child {
   border-top:none;
@@ -93,9 +108,9 @@ tr:nth-child(odd) td {
   background:#EBEBEB;
 }
 
-tr:nth-child(odd):hover td {
+/* tr:nth-child(odd):hover td {
   background:#4E5066;
-}
+} */
 
 tr:last-child td:first-child {
   border-bottom-left-radius:3px;
