@@ -33,6 +33,6 @@ In the third tab:
 
 `npm install`
 
-`ng serve`
+`ng serve` (locally) or `ng serve --port 8003` (remotely)
 
-Now go to http://localhost:4200/list and you should see the data populating the page.
+Now go to http://localhost:4200/ (or http://localhost:8003/ if remote) and you should see the data populating the page.
