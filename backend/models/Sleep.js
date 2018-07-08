@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let Sleep = new Schema({
+let SleepSchema = new Schema({
     _id: {type: String},
     timestamp: {type: String},
     datetime: {type: String},
@@ -10,4 +9,4 @@ let Sleep = new Schema({
     comment: {type: String}
 });
 
-export default mongoose.model('Sleep', Sleep, 'sleep');
+module.exports = mongoose.model('Sleep', SleepSchema, 'sleep');

@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let Drink = new Schema({
+let DrinkSchema = new Schema({
     _id: {type: String},
     timestamp: {type: String},
     date: {type: String},
@@ -11,4 +10,4 @@ let Drink = new Schema({
     coffees: {type: String}
 });
 
-export default mongoose.model('Drink', Drink, 'drinks');
+module.exports = mongoose.model('Drink', DrinkSchema, 'drinks');

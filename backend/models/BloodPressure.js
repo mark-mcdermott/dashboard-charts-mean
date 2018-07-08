@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let BloodPressure = new Schema({
+let BloodPressureSchema = new Schema({
     _id: {type: String},
     timestamp: {type: String},
     date: {type: String},
@@ -10,4 +9,4 @@ let BloodPressure = new Schema({
     comment: {type: String}
 });
 
-export default mongoose.model('BloodPressure', BloodPressure, 'bloodpressure');
+module.exports = mongoose.model('BloodPressure', BloodPressureSchema, 'bloodpressure');

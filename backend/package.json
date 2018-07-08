@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "babel-watch server.js"
+    "dev": "babel-watch server-dev.js",
+    "babel": "babel ./server-dev.js --presets babel-preset-es2015 --out-file ./server.js "
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "babel-watch": "^2.0.7"
   },
   "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "mongoose": "^5.2.1"

@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let HeartRate = new Schema({
+let HeartRateSchema = new Schema({
     _id: {type: String},
     timestamp: {type: String},
     date: {type: String},
@@ -13,4 +12,4 @@ let HeartRate = new Schema({
     min: {type: String}
 });
 
-export default mongoose.model('HeartRate', HeartRate, 'heartrate');
+module.exports = mongoose.model('HeartRate', HeartRateSchema, 'heartrate');

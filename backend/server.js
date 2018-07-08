@@ -1,14 +1,13 @@
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-
-import BloodPressure from './models/BloodPressure';
-import Drink from './models/Drink';
-import HeartRate from './models/HeartRate';
-import Meditation from './models/Meditation';
-import Sleep from './models/Sleep';
-import Weight from './models/Weight';
+const express = require ('express');
+const cors = require ('cors');
+const bodyParser = require ('body-parser');
+const mongoose = require ('mongoose');
+const BloodPressure = require ('./models/BloodPressure');
+const Drink = require ('./models/Drink');
+const HeartRate = require ('./models/HeartRate');
+const Meditation = require ('./models/Meditation');
+const Sleep = require ('./models/Sleep');
+const Weight = require ('./models/Weight');
 
 const app = express();
 const router = express.Router();
@@ -25,9 +24,9 @@ connection.once('open', () => {
 });
 
 router.route('/blood-pressure').get((req, res) => {
-  BloodPressure.find((err, bloodPressure) => {
+  BloodPressure.find((err, bloodPressures) => {
       if (err) { console.log(err); }
-      else { res.json(bloodPressure.sort(compare)); }
+      else { res.json(bloodPressures.sort(compare)); }
   });
 });
 

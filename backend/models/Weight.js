@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let Weight = new Schema({
+let WeightSchema = new Schema({
     _id: {type: String},
     timestamp: {type: String},
     datetime: {type: String},
@@ -10,4 +9,4 @@ let Weight = new Schema({
     comment: {type: String}
 });
 
-export default mongoose.model('Weight', Weight, 'weight');
+module.exports = mongoose.model('Weight', WeightSchema, 'weight');
