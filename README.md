@@ -33,6 +33,14 @@ In the third tab:
 
 `npm install`
 
-`ng serve` (locally) or `ng serve --port 8003` (remotely)
+`ng serve`
 
-Now go to http://localhost:4200/ (or http://localhost:8003/ if remote) and you should see the data populating the page.
+Now go to http://localhost:4200/ and you should see the data populating the page.
+
+For deployment on prod, in the frontend tab (the third tab):
+
+`ng build --configuration=prod`
+
+`cd dist/frontend`
+
+`http-server` or I actually do `http-server -p 8003` to specify the port
