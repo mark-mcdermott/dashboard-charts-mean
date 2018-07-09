@@ -33,11 +33,17 @@ In the third tab:
 
 `npm install`
 
+(make sure services have local url)
+
 `ng serve`
 
 Now go to http://localhost:4200/ and you should see the data populating the page.
 
 For deployment on prod, in the frontend tab (the third tab):
+
+Change all the service urls to prod:
+
+In services/blood-pressure.service.ts etc check the comment on line 9 or 10
 
 `ng build --configuration=prod`
 
