@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WeightService {
 
-  uri = 'http://localhost:4000';
+  uri = 'http://54.213.39.97:4000'; // prod
+  // uri = 'http://localhost:4000'; // dev
 
   constructor(private http: HttpClient) {
   }

@@ -15,7 +15,8 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost/dashboard');
+mongoose.connect('mongodb://54.213.39.97/dashboard'); // prod 
+//mongoose.connect('mongodb://localhost/dashboard'); // local dev
 
 const connection = mongoose.connection;
 
