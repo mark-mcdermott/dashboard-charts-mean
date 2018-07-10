@@ -14,12 +14,19 @@ app-weight {
 /* styles (mostly table styles) from https://codepen.io/alassetter/pen/cyrfB */
 
 body {
-  background-color: #3e94ec;
+  /*background-color: #3e94ec;*/
+  background-color: #f5f5f5;
   font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 12px;
   font-weight: 400;
   text-rendering: optimizeLegibility;
   margin: 0;
+}
+
+app-charts {
+  background-color: #3e94ec;
+  display: block;
+  overflow: hidden;
 }
 
 div.table-title {
