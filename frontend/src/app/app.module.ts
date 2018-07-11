@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ChartsComponent } from './components/charts/charts.component';
+import { ChartsDashboardComponent } from './components/charts-dashboard/charts-dashboard.component';
 import { BloodPressureComponent } from './components/blood-pressure/blood-pressure.component';
 import { DrinksComponent } from './components/drinks/drinks.component';
 import { HeartRateComponent } from './components/heart-rate/heart-rate.component';
@@ -19,11 +19,12 @@ import { DrinksService } from './services/drinks/drinks.service';
 import { HeartRateService } from './services/heart-rate/heart-rate.service';
 import { MeditationService } from './services/meditation/meditation.service';
 import { SleepService } from './services/sleep/sleep.service';
-import { WeightService } from './services/weight/weight.service';
+import { WeightService } from './services/weight/weight.service'; 
+
 
 
 const routes: Routes = [
-  { path: '', component: ChartsComponent },
+  { path: '', component: ChartsDashboardComponent },
   { path: '**', redirectTo: '' },
 ];
 
@@ -31,7 +32,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     BloodPressureComponent,
-    ChartsComponent,
+    ChartsDashboardComponent,
     DrinksComponent,
     HeartRateComponent,
     MeditationComponent,
