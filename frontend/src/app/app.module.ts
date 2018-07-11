@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatToolbarModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { GoogleChartModule } from './modules/angular-google-chart/google-chart.module'; // from https://github.com/dbk4002/angular-google-chart
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,7 +20,7 @@ import { DrinksService } from './services/drinks/drinks.service';
 import { HeartRateService } from './services/heart-rate/heart-rate.service';
 import { MeditationService } from './services/meditation/meditation.service';
 import { SleepService } from './services/sleep/sleep.service';
-import { WeightService } from './services/weight/weight.service'; 
+import { WeightService } from './services/weight/weight.service';
 
 
 
@@ -44,6 +45,7 @@ const routes: Routes = [
     MatToolbarModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    GoogleChartModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
