@@ -29,6 +29,10 @@ app-charts-dashboard {
   overflow: hidden;
 }
 
+.chart {
+  margin: 0 0 0 25px;
+}
+
 div.table-title {
   display: block;
   margin: auto;

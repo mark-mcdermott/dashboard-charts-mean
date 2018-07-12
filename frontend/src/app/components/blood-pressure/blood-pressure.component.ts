@@ -24,27 +24,44 @@ export  class  BloodPressureComponent  implements  OnInit {
       });
     }
 
-    let LINE_DATA = [
-    ["Year", "Sales", "Expenses"],
-    ["2004",  1000,      400],
-    ["2005",  1170,      460],
-    ["2006",  660,       1120],
-    ["2007",  1030,      540]
-    ];
+    let CANDLE_DATA = [
+        ['7/26/17', 70, 70, 110, 110],
+        ['8/24/17', 78, 78, 112, 112],
+        ['11/1/17', 66, 66, 111, 111],
+        ['12/21/17', 80, 80, 126, 126],
+        ['3/13/18', 69, 69, 103, 103],
+        ['3/16/18', 73, 73, 124, 124],
+        ['4/18/18', 86, 86, 130, 130],
+        ['5/20/18', 67, 67, 129, 129],
+        ['5/22/18', 70, 70, 106, 106]
+      ];
 
-    let LINE_OPTION = {
-      title: 'Company Performance',
-      curveType: 'function',
-      legend: { position: 'bottom' },
-      pointsVisible : true,
-      animation:{
-        duration: 1000,
-        easing: 'out'
-      }
-    };
+    let CANDLE_OPTIONS = {
+        legend:'none',
+        candlestick: {
+          fallingColor: { strokeWidth: 0, fill: '#e74c3c' },
+          risingColor: { strokeWidth: 0, fill: '#e74c3c' }
+        },
+        hAxis {
+          textStyle {
+            color: '#666666'
+          }
+        },
+        vAxis {
+          textStyle {
+            color: '#666666'
+          }
+        },
+        width: ' 700'
+      };
 
-    this.dataMap['LINE_DATA'] =	loadData(LINE_DATA);
-    this.dataMap['LINE_OPTIONS'] = LINE_OPTION;
+    let CANDLE_CONFIG = {
+      firstRowAsData : true
+    }
+
+    this.dataMap['CANDLE_DATA'] =  loadData(CANDLE_DATA);
+    this.dataMap['CANDLE_OPTIONS'] = CANDLE_OPTIONS;
+    this.dataMap['CANDLE_CONFIG'] = CANDLE_CONFIG;
 
   }
   ngOnInit() {

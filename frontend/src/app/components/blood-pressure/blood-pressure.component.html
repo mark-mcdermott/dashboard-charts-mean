@@ -2,8 +2,12 @@
   <h3>Blood Pressure</h3>
 </div>
 
-<!-- <google-chart [chartType]="'LineChart'" [dataPromise]="dataMap['LINE_DATA']" [options]="dataMap['LINE_OPTIONS']"  ></google-chart>	-->
+<div class="chart">
+  <google-chart [chartType]="'CandlestickChart'" [dataPromise]="dataMap['CANDLE_DATA']" [options]="dataMap['CANDLE_OPTIONS']" [config] ="dataMap['CANDLE_CONFIG']"></google-chart>
+</div>
 
+
+<!--
 <table>
   <tr>
     <th>date</th>
@@ -14,3 +18,4 @@
     <td>{{bloodPressure.pressure}}</td>
   </tr>
 </table>
+-->
