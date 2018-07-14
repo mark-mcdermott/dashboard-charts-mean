@@ -42,13 +42,13 @@ export  class  BloodPressureComponent  implements  OnInit {
           fallingColor: { strokeWidth: 0, fill: '#e74c3c' },
           risingColor: { strokeWidth: 0, fill: '#e74c3c' }
         },
-        hAxis {
-          textStyle {
+        hAxis: {
+          textStyle: {
             color: '#666666'
           }
         },
-        vAxis {
-          textStyle {
+        vAxis: {
+          textStyle: {
             color: '#666666'
           }
         },

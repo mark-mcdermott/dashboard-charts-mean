@@ -1,7 +1,12 @@
 <div class="table-title">
   <h3>Heart Rate</h3>
 </div>
-<table>
+
+<div class="chart">
+  <google-chart [chartType]="'CandlestickChart'" [dataPromise]="dataMap['CANDLE_DATA']" [options]="dataMap['CANDLE_OPTIONS']" [config] ="dataMap['CANDLE_CONFIG']"></google-chart>
+</div>
+
+<!-- <table>
   <tr>
     <th>date</th>
     <th>time</th>
@@ -16,4 +21,4 @@
     <td>{{heartRate.min}}</td>
     <td>{{heartRate.max}}</td>
   </tr>
-</table>
+</table> -->
