@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { DrinksService } from '../../services/drinks/drinks.service';
 
 @Component({
@@ -15,57 +15,56 @@ export  class  DrinksComponent  implements  OnInit {
   dataMap : any;
 
   private  drinks:  Array<object> = [];
-  constructor(private drinksService: DrinksService) {
-
-    this.dataMap = {};
-    let loadData = function(_data){
-      return new Promise(function(resolve,reject){
-        resolve(_data);
-      });
-    }
-
-    let CANDLE_DATA = [
-        ['7/26/17', 70, 70, 110, 110],
-        ['8/24/17', 78, 78, 112, 112],
-        ['11/1/17', 66, 66, 111, 111],
-        ['12/21/17', 80, 80, 126, 126],
-        ['3/13/18', 69, 69, 103, 103],
-        ['3/16/18', 73, 73, 124, 124],
-        ['4/18/18', 86, 86, 130, 130],
-        ['5/20/18', 67, 67, 129, 129],
-        ['5/22/18', 70, 70, 106, 106]
-      ];
-
-    let CANDLE_OPTIONS = {
-        legend:'none',
-        candlestick: {
-          fallingColor: { strokeWidth: 0, fill: '#e74c3c' },
-          risingColor: { strokeWidth: 0, fill: '#e74c3c' }
-        },
-        hAxis: {
-          textStyle: {
-            color: '#666666'
-          }
-        },
-        vAxis: {
-          textStyle: {
-            color: '#666666'
-          }
-        },
-        width: ' 700'
-      };
-
-    let CANDLE_CONFIG = {
-      firstRowAsData : true
-    }
-
-    this.dataMap['CANDLE_DATA'] =  loadData(CANDLE_DATA);
-    this.dataMap['CANDLE_OPTIONS'] = CANDLE_OPTIONS;
-    this.dataMap['CANDLE_CONFIG'] = CANDLE_CONFIG;
-
-  }
+  constructor(private drinksService: DrinksService) {}
   ngOnInit() {
     this.getDrinks();
+
+    // this.dataMap = {};
+    // let loadData = function(_data){
+    //   return new Promise(function(resolve,reject){
+    //     resolve(_data);
+    //   });
+    // }
+    //
+    // let STACKED_COLUMN_DATA = [
+    //
+    //     ['drinks','waters','coffees','beers', {role: 'annotation'}],
+    //     ['05/21/18', 3,	2, 0, ''],
+    //     ['05/22/18', 2,	2, 0, ''],
+    //     ['05/23/18', 5,	2, 0, ''],
+    //     ['05/25/18', 3,	2, 0, ''],
+    //     ['05/26/18', 3,	1, 0, ''],
+    //     ['05/27/18', 2,	1, 2, ''],
+    //     ['05/30/18', 3,	2, 0, ''],
+    //     ['05/30/18', 4,	2, 0, ''],
+    //     ['06/06/18', 3,	3, 0, ''],
+    //     ['06/07/18', 2,	2, 0, ''],
+    //     ['06/08/18', 5,	2, 2, ''],
+    //     ['06/09/18', 2,	2, 0, ''],
+    //     ['06/26/18', 2,	2, 0, ''],
+    //     ['06/27/18', 2,	4, 0, ''],
+    //     ['06/28/18', 3,	3, 1, '']
+    //
+    //   ];
+    //
+    // let STACKED_COLUMN_OPTIONS = {
+    //   width: 600,
+    //   height: 400,
+    //   legend: { position: 'top'},
+    //   bar: { groupWidth: '75%' },
+    //   isStacked: true,
+    //   };
+    //
+    // let STACKED_COLUMN_CONFIG = {
+    // }
+    //
+    // this.dataMap['STACKED_COLUMN_DATA'] =  loadData(STACKED_COLUMN_DATA);
+    // this.dataMap['STACKED_COLUMN_OPTIONS'] = STACKED_COLUMN_OPTIONS;
+    // this.dataMap['STACKED_COLUMN_CONFIG'] = STACKED_COLUMN_CONFIG;
+
+  }
+  ngAfterViewInit() {
+
   }
   public getDrinks(){
     this.drinksService.getDrinks().subscribe((data: Array<object>) => {
