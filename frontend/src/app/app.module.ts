@@ -3,14 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatToolbarModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
-import { GoogleChartModule } from './modules/angular-google-chart/google-chart.module'; // from https://github.com/dbk4002/angular-google-chart
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsDashboardComponent } from './components/charts-dashboard/charts-dashboard.component';
 import { BloodPressureComponent } from './components/blood-pressure/blood-pressure.component';
 import { DrinksComponent } from './components/drinks/drinks.component';
@@ -47,12 +43,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     MatToolbarModule,
-    BrowserAnimationsModule,
     HttpClientModule,
-    GoogleChartModule,
-    FormsModule,
-    NgxChartsModule,
-    BrowserAnimationsModule,
     ChartsModule,
     RouterModule.forRoot(routes)
   ],

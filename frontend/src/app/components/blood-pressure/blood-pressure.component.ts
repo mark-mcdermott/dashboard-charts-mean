@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BloodPressureService } from '../../services/blood-pressure/blood-pressure.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { single } from '../../data';
+import { BloodPressureService } from '../../services/blood-pressure/blood-pressure.service';
 import { Chart } from 'chart.js';
 import { map } from 'rxjs/operators';
 
@@ -24,8 +22,6 @@ export  class  BloodPressureComponent  implements  OnInit {
   private  bloodPressureTable:  Array<object> = [];
   constructor(private bloodPressureService: BloodPressureService) {}
 
-
-
   ngOnInit() {
     this.bloodPressureService.getBloodPressures().pipe(map((data: any) => data))
       .subscribe((res) => {
@@ -39,14 +35,12 @@ export  class  BloodPressureComponent  implements  OnInit {
 
         this.chart = new Chart('canvas', {
           type: 'line',
-
-          // The data for our dataset
           data: {
               labels: this.dateArr,
               datasets: [
                 {
                   fill: false,
-                  borderColor: 'rgb(255, 99, 132)',
+                  borderColor: '#fd6586',
                   data: this.topArr
                 },
                 {
@@ -56,8 +50,6 @@ export  class  BloodPressureComponent  implements  OnInit {
                 },
               ]
           },
-
-          // Configuration options go here
           options: {
             legend: {
               display: false
@@ -82,11 +74,10 @@ export  class  BloodPressureComponent  implements  OnInit {
               }]
             }
           }
+        }); // close new Chart
 
-        });
+      }); // close subscribe call
 
-      });
-  }
+  } // close ngOnInit()
 
-
-}
+} // close BloodPressureComponent
