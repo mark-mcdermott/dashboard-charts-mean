@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BloodPressureService } from '../../services/blood-pressure/blood-pressure.service';
 import { Chart } from 'chart.js';
-import { map } from 'rxjs/operators'; 
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-blood-pressure',
@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./blood-pressure.component.css']
 })
 
-export  class  BloodPressureComponent  implements  OnInit {
+export  class  BloodPressureComponent  implements  AfterContentInit {
 
   dateArr: any;
   topArr: any;
@@ -18,13 +18,24 @@ export  class  BloodPressureComponent  implements  OnInit {
   chartData: any[];
   chartLabels: any;
   chart: any[] = [];
+  canvasWidth: any;
+  canvasHeight: any;
 
   private  bloodPressureTable:  Array<object> = [];
   constructor(private bloodPressureService: BloodPressureService) {}
 
-  ngOnInit() {
+  ngAfterContentInit() {
+
     this.bloodPressureService.getBloodPressures().pipe(map((data: any) => data))
       .subscribe((res) => {
+
+        let canvas = document.getElementsByTagName('canvas')[0];
+        let cardWidth = document.getElementById('firstCard').offsetWidth;
+        this.canvasWidth = .9 * cardWidth;
+        this.canvasHeight = .6 * this.canvasWidth;
+        canvas.width = this.canvasWidth;
+        canvas.height = this.canvasHeight;
+
         this.bloodPressureTable = res;
         this.dateArr = this.bloodPressureTable.map(bp => {
           let dateObj = new Date(bp['date']);
@@ -51,6 +62,7 @@ export  class  BloodPressureComponent  implements  OnInit {
               ]
           },
           options: {
+            responsive: false,
             legend: {
               display: false
             },

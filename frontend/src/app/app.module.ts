@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MatToolbarModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
 import { ChartsDashboardComponent } from './components/charts-dashboard/charts-dashboard.component';
@@ -41,8 +42,9 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    MatToolbarModule,
     HttpClientModule,
+    FlexLayoutModule,
+    MaterialModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

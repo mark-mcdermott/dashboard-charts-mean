@@ -1,9 +1,5 @@
-<div class="table-title">
-  <h3>Blood Pressure</h3>
-</div>
-
-<div *ngIf="chart">
-  <canvas id="canvas" style="width: 100%">{{chart}}</canvas>
+<div *ngIf="chart" class="chart">
+  <canvas id="canvas">{{chart}}</canvas>
 </div>
 
 
