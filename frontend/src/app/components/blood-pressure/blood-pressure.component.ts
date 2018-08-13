@@ -30,8 +30,11 @@ export  class  BloodPressureComponent  implements  OnInit {
     this.bloodPressureService.getBloodPressures().pipe(map((data: any) => data))
       .subscribe((res) => {
         this.bloodPressureTable = res;
-        this.dateArr = this.bloodPressureTable.map(bp => bp['date']);
-        this.topArr = this.bloodPressureTable.map(bp => bp['top']);
+        this.dateArr = this.bloodPressureTable.map(bp => {
+          let dateObj = new Date(bp['date']);
+          return dateObj
+        });
+        this.topArr = this.bloodPressureTable.map( bp => bp['top']);
         this.bottomArr = this.bloodPressureTable.map(bp => bp['bottom']);
 
         this.chart = new Chart('canvas', {
