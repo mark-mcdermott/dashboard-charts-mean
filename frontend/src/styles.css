@@ -29,6 +29,11 @@ app-charts-dashboard {
   overflow: hidden;
 }
 
+canvas {
+  padding: 5% 4%;
+  background: #fff;
+}
+
 .chart {
   margin: 0 0 0 25px;
 }

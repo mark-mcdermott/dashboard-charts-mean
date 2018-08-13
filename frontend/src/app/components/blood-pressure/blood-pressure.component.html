@@ -2,28 +2,12 @@
   <h3>Blood Pressure</h3>
 </div>
 
-<!-- <ngx-charts-bar-vertical
-  [view]="view"
-  [scheme]="colorScheme"
-  [results]="single"
-  [gradient]="gradient"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [legend]="showLegend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  (select)="onSelect($event)">
-</ngx-charts-bar-vertical> -->
+<div *ngIf="chart">
+  <canvas id="canvas" style="width: 100%">{{chart}}</canvas>
+</div>
 
-<!-- <div class="chart">
-  <google-chart [chartType]="'CandlestickChart'" [dataPromise]="dataMap['CANDLE_DATA']" [options]="dataMap['CANDLE_OPTIONS']" [config] ="dataMap['CANDLE_CONFIG']"></google-chart>
-</div> -->
 
-<!-- <p *ngFor="let date of dateArr">{{date}}</p> -->
-
-<table>
+<!-- <table>
   <tr>
     <th>date</th>
     <th>top</th>
@@ -34,4 +18,4 @@
     <td>{{row.top}}</td>
     <td>{{row.bottom}}</td>
   </tr>
-</table>
+</table> -->

@@ -7,6 +7,7 @@ import { GoogleChartModule } from './modules/angular-google-chart/google-chart.m
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -52,6 +53,7 @@ const routes: Routes = [
     FormsModule,
     NgxChartsModule,
     BrowserAnimationsModule,
+    ChartsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

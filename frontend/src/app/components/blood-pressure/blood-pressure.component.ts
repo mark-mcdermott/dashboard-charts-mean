@@ -3,6 +3,8 @@ import { BloodPressureService } from '../../services/blood-pressure/blood-pressu
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { single } from '../../data';
+import { Chart } from 'chart.js';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-blood-pressure',
@@ -12,78 +14,76 @@ import { single } from '../../data';
 
 export  class  BloodPressureComponent  implements  OnInit {
 
-  // dataPromise : any;
-  // options : any;
-  // onSelect : any;
-  // dataMap : any;
-
-
-  // multi: any[];
-  // //
-  // view: any[] = [700, 400];
-  // //
-  // // options
-  // showXAxis = true;
-  // showYAxis = true;
-  // gradient = false;
-  // showLegend = true;
-  // showXAxisLabel = true;
-  // xAxisLabel = 'Country';
-  // showYAxisLabel = true;
-  // yAxisLabel = 'Population';
-  // //
-  // colorScheme = {
-  //   domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  // };
-  //
-  // constructor() {
-  //   Object.assign(this, { single })
-  // }
-  //
-  // onSelect(event) {
-  //   console.log(event);
-  // }
-
   dateArr: any;
   topArr: any;
   bottomArr: any;
-  // options : any;
-  // onSelect : any;
-  // dataMap : any;
+  chartData: any[];
+  chartLabels: any;
+  chart: any[] = [];
 
   private  bloodPressureTable:  Array<object> = [];
-  constructor(private bloodPressureService: BloodPressureService) {
+  constructor(private bloodPressureService: BloodPressureService) {}
 
-      // this.getBloodPressures()
 
-  }
-  onSelect(event) {
-    console.log(event);
-  }
+
   ngOnInit() {
-    this.getBloodPressures();
-    //console.log(this.bloodPressures);
-    // for (let row in this.getBloodPressures) {
-    //   console.log(row)
-    //   // console.log(row.top)
-    //   // console.log(row.bottom)
-    //   // this.dates.push(row.date);
-    // }
-  }
-  public getBloodPressures(){
-    this.bloodPressureService.getBloodPressures().subscribe((data: Array<object>) => {
-      this.bloodPressureTable = data;
-      this.dateArr = this.bloodPressureTable.map(bp => bp['date']);
-      this.topArr = this.bloodPressureTable.map(bp => bp['top']);
-      this.bottomArr = this.bloodPressureTable.map(bp => bp['bottom']);
-    });
+    this.bloodPressureService.getBloodPressures().pipe(map((data: any) => data))
+      .subscribe((res) => {
+        this.bloodPressureTable = res;
+        this.dateArr = this.bloodPressureTable.map(bp => bp['date']);
+        this.topArr = this.bloodPressureTable.map(bp => bp['top']);
+        this.bottomArr = this.bloodPressureTable.map(bp => bp['bottom']);
 
-    // this.bloodPressureService.getBloodPressures()
-    //     .then(bloodPressures => {
-    //    this.bloodPressures = bloodPressures;
-    //    console.log('this.users=' + this.bloodPressures);
-    // });
-    //
-    // });
+        this.chart = new Chart('canvas', {
+          type: 'line',
+
+          // The data for our dataset
+          data: {
+              labels: this.dateArr,
+              datasets: [
+                {
+                  fill: false,
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: this.topArr
+                },
+                {
+                  fill: false,
+                  borderColor: '#ffa500',
+                  data: this.bottomArr
+                },
+              ]
+          },
+
+          // Configuration options go here
+          options: {
+            legend: {
+              display: false
+            },
+            elements: {
+              line: {
+                tension: 0
+              }
+            },
+            scales: {
+              xAxes: [{
+                type: 'time',
+                time: {
+                  unit: "day",
+                  displayFormats: {
+                    day: "M/DD",
+                  }
+                },
+                ticks: {
+                  autoSkip: true
+                }
+              }]
+            }
+          }
+
+        });
+
+      });
   }
+
+
 }
