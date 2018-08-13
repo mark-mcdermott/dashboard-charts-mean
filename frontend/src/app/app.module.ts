@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatToolbarModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { ChartsDashboardComponent } from './components/charts-dashboard/charts-dashboard.component';
@@ -44,7 +43,6 @@ const routes: Routes = [
     BrowserModule,
     MatToolbarModule,
     HttpClientModule,
-    ChartsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

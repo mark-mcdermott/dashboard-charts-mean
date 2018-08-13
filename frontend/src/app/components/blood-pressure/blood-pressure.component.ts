@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BloodPressureService } from '../../services/blood-pressure/blood-pressure.service';
 import { Chart } from 'chart.js';
-import { map } from 'rxjs/operators';
+import { map } from 'rxjs/operators'; 
 
 @Component({
   selector: 'app-blood-pressure',
