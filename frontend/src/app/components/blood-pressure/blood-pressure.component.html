@@ -2,7 +2,7 @@
   <h3>Blood Pressure</h3>
 </div>
 
-<ngx-charts-bar-vertical
+<!-- <ngx-charts-bar-vertical
   [view]="view"
   [scheme]="colorScheme"
   [results]="single"
@@ -15,22 +15,23 @@
   [xAxisLabel]="xAxisLabel"
   [yAxisLabel]="yAxisLabel"
   (select)="onSelect($event)">
-</ngx-charts-bar-vertical>
+</ngx-charts-bar-vertical> -->
 
 <!-- <div class="chart">
   <google-chart [chartType]="'CandlestickChart'" [dataPromise]="dataMap['CANDLE_DATA']" [options]="dataMap['CANDLE_OPTIONS']" [config] ="dataMap['CANDLE_CONFIG']"></google-chart>
 </div> -->
 
+<!-- <p *ngFor="let date of dateArr">{{date}}</p> -->
 
-<!--
 <table>
   <tr>
     <th>date</th>
-    <th>pressure</th>
+    <th>top</th>
+    <th>bottom</th>
   </tr>
-  <tr *ngFor="let bloodPressure of bloodPressures">
-    <td>{{bloodPressure.date}}</td>
-    <td>{{bloodPressure.pressure}}</td>
+  <tr *ngFor="let row of bloodPressureTable">
+    <td>{{row.date}}</td>
+    <td>{{row.top}}</td>
+    <td>{{row.bottom}}</td>
   </tr>
 </table>
--->
