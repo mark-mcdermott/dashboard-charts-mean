@@ -2,12 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let DrinkSchema = new Schema({
-    _id: {type: String},
-    timestamp: {type: String},
+    water: {type: String},
+    coffee: {type: String},
+    beer: {type: String},
     date: {type: String},
-    waters: {type: String},
-    coffees: {type: String},
-    coffees: {type: String}
-});
+    MEMENTO_ID: {type: String}
+}, { collection: 'drinks'});
 
 module.exports = mongoose.model('Drink', DrinkSchema, 'drinks');

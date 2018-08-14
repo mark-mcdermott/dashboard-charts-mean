@@ -17,7 +17,7 @@ export  class  BloodPressureComponent  implements  AfterContentInit {
   bottomArr: any;
   chartData: any[];
   chartLabels: any;
-  chart: any[] = [];
+  chart: any[] = []; 
   canvasWidth: any;
   canvasHeight: any;
 
