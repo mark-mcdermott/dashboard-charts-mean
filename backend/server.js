@@ -26,7 +26,11 @@ connection.once('open', () => {
 router.route('/blood-pressure').get((req, res) => {
   BloodPressure.find((err, bloodPressures) => {
       if (err) { console.log(err); }
-      else { res.json(bloodPressures.sort(compare)); }
+      else {
+        // get timestamps and then send response, sorted by date
+        addTimestampProperty(bloodPressures);
+        res.send(bloodPressures.sort(compare));
+      }
   });
 });
 
@@ -69,7 +73,19 @@ app.use('/', router);
 
 app.listen(4000, () => console.log(`Express server running on port 4000`));
 
-
+// takes array of objects where each object has a .date property in
+// m/d/yy format and adds a .timestamp property to each object
+function addTimestampProperty(arr) {
+  for (let i=0; i<arr.length; i++) {
+    let dateStr = arr[i].date;
+    let dateArr = dateStr.split('/');
+    let month = dateArr[0] < 10 ? '0' + dateArr[0] : dateArr[0];
+    let day = dateArr[1] < 10 ? '0' + dateArr[1] : dateArr[1];
+    let year = '20' + dateArr[2];
+    let datetime = new Date(year + '-' + month + '-' + day);
+    arr[i].timestamp = datetime.getTime();
+  }
+}
 
 /* sorting helper function */
 /* https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value-in-javascript */

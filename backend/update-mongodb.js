@@ -20,6 +20,7 @@ var request = http.get(gSheetUrl, function(response) {
     var db = mongoose.connection;
     if (typeof db.collections['bloodpressure'] != 'undefined') {
       db.collections['bloodpressure'].drop(function(){
+        console.log('dropped bloodpressure collection')
         csv.importFile('./data/csv/' + 'bloodpressure.csv', csvHeaders.BLOODPRESSURE.headers, 'BloodPressure');
       });
     } else {
