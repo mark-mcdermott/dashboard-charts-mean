@@ -6,12 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
 
-import { AppComponent } from './app.component';
-import { ChartComponent } from './components/chart/chart.component';
-
 import { ChartService } from './services/chart/chart.service';
 
-
+import { AppComponent } from './app.component';
+import { BloodPressureComponent } from './components/blood-pressure/blood-pressure.component';
 
 
 const routes: Routes = [
@@ -22,7 +20,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ChartComponent
+    BloodPressureComponent
   ],
   imports: [
     BrowserModule,
