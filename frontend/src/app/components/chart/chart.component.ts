@@ -1,32 +1,34 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, Input } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BloodPressureService } from '../../services/blood-pressure/blood-pressure.service';
+import { ChartService } from '../../services/chart/chart.service';
 import { Chart } from 'chart.js';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-blood-pressure',
-  templateUrl: './blood-pressure.component.html',
-  styleUrls: ['./blood-pressure.component.css']
+  selector: 'app-chart',
+  templateUrl: './chart.component.html',
+  styleUrls: ['./chart.component.css']
 })
+export class ChartComponent implements AfterContentInit {
 
-export  class  BloodPressureComponent  implements  AfterContentInit {
+  @Input()
+  chartName: string;
 
   dateArr: any;
   topArr: any;
   bottomArr: any;
   chartData: any[];
   chartLabels: any;
-  chart: any[] = []; 
+  chart: any[] = [];
   canvasWidth: any;
   canvasHeight: any;
 
-  private  bloodPressureTable:  Array<object> = [];
-  constructor(private bloodPressureService: BloodPressureService) {}
+  private  chartDataTable:  Array<object> = [];
+  constructor(private chartService: ChartService) {}
 
   ngAfterContentInit() {
 
-    this.bloodPressureService.getBloodPressures().pipe(map((data: any) => data))
+    this.chartService.getChartData(this.chartName).pipe(map((data: any) => data))
       .subscribe((res) => {
 
         let canvas = document.getElementsByTagName('canvas')[0];
@@ -36,13 +38,13 @@ export  class  BloodPressureComponent  implements  AfterContentInit {
         canvas.width = this.canvasWidth;
         canvas.height = this.canvasHeight;
 
-        this.bloodPressureTable = res;
-        this.dateArr = this.bloodPressureTable.map(bp => {
+        this.chartDataTable = res;
+        this.dateArr = this.chartDataTable.map(bp => {
           let dateObj = new Date(bp['date']);
           return dateObj
         });
-        this.topArr = this.bloodPressureTable.map( bp => bp['top']);
-        this.bottomArr = this.bloodPressureTable.map(bp => bp['bottom']);
+        this.topArr = this.chartDataTable.map( bp => bp['top']);
+        this.bottomArr = this.chartDataTable.map(bp => bp['bottom']);
 
         this.chart = new Chart('canvas', {
           type: 'line',

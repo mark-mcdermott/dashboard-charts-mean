@@ -5,16 +5,15 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class BloodPressureService {
+export class ChartService {
 
   //uri = 'http://54.213.39.97:4000'; // prod
-  uri = 'http://localhost:4000'; // dev
+  private uri = 'http://localhost:4000'; // dev
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
-  getBloodPressures() {
-    return this.http.get(`${this.uri}/blood-pressure`).pipe(map((res) => res))
+  getChartData(chartName) {
+    return this.http.get(this.uri + '/' + chartName).pipe(map((res) => res))
   }
 
 }
