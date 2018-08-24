@@ -49,8 +49,8 @@ var googleSheets = {
 }
 
 // gSheetsCsvToMongo(googleSheets.heartrate);
-gSheetsCsvToMongo(googleSheets.heartrate);
-// gSheetsToMongo(googleSheets.meditation);
+// gSheetsCsvToMongo(googleSheets.heartrate);
+gSheetsCsvToMongo(googleSheets.meditation);
 // gSheetsToMongo(googleSheets.sleep);
 // gSheetsCsvToMongo(googleSheets.weight);
 // localCsvToMongo(googleSheets.weight);
