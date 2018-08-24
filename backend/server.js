@@ -23,13 +23,20 @@ connection.once('open', () => {
     console.log('MongoDB database connection established successfully!');
 });
 
+router.route('/weight').get((req, res) => {
+  Weight.find((err, weight) => {
+      if (err) { console.log(err); }
+      else {
+        res.send(weight.sort(timestamp));
+      }
+  });
+});
+
 router.route('/blood-pressure').get((req, res) => {
   BloodPressure.find((err, bloodPressures) => {
       if (err) { console.log(err); }
       else {
-        // get timestamps and then send response, sorted by date
-        addTimestampProperty(bloodPressures);
-        res.send(bloodPressures.sort(compare));
+        res.send(bloodPressures.sort(timestamp));
       }
   });
 });
@@ -37,35 +44,48 @@ router.route('/blood-pressure').get((req, res) => {
 router.route('/drinks').get((req, res) => {
   Drink.find((err, drinks) => {
       if (err) { console.log(err); }
-      else { res.json(drinks.sort(compare)); }
+      else {
+        res.send(drinks.sort(timestamp));
+      }
   });
 });
 
 router.route('/heart-rate').get((req, res) => {
   HeartRate.find((err, heartRates) => {
       if (err) { console.log(err); }
-      else { res.json(heartRates.sort(compare)); }
+      else {
+        let sortedHeartRates = heartRates.sort(timestamp);
+        let mostRecent = sortedHeartRates[sortedHeartRates.length - 1];
+        let mostRecentTimestamp = mostRecent.timestamp;
+        let oneDayPrevTimestamp = mostRecentTimestamp - ( 24 * 60 * 60 );
+        let i = 0;
+        let heartRatesLastDay = sortedHeartRates.filter(function(heartRate) {
+          if ( heartRate.timestamp < oneDayPrevTimestamp || heartRate.max < 15 ) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+        res.json(heartRatesLastDay);
+      }
   });
 });
 
 router.route('/meditation').get((req, res) => {
-  Meditation.find((err, meditation) => {
+  Meditation.find((err, meditations) => {
       if (err) { console.log(err); }
-      else { res.json(meditation.sort(compare)); }
+      else {
+        res.json(meditations.sort(timestamp));
+      }
   });
 });
 
 router.route('/sleep').get((req, res) => {
   Sleep.find((err, sleep) => {
       if (err) { console.log(err); }
-      else { res.json(sleep.sort(compare)); }
-  });
-});
-
-router.route('/weight').get((req, res) => {
-  Weight.find((err, weight) => {
-      if (err) { console.log(err); }
-      else { res.json(weight.sort(compare)); }
+      else {
+        res.json(sleep.sort(timestamp));
+      }
   });
 });
 
@@ -84,15 +104,33 @@ function addTimestampProperty(arr) {
     let year = '20' + dateArr[2];
     let datetime = new Date(year + '-' + month + '-' + day);
     arr[i].timestamp = datetime.getTime();
+    // console.log(arr[i])
   }
+  return arr;
 }
 
 /* sorting helper function */
 /* https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value-in-javascript */
+function timestamp(a,b) {
+  if (a.timestamp < b.timestamp)
+    return -1;
+  if (a.timestamp > b.timestamp)
+    return 1;
+  return 0;
+}
+
 function compare(a,b) {
   if (a.timestamp < b.timestamp)
     return -1;
   if (a.timestamp > b.timestamp)
+    return 1;
+  return 0;
+}
+
+function compareMementoId(a,b) {
+  if (a.MEMENTO_ID < b.MEMENTO_ID)
+    return -1;
+  if (a.MEMENTO_ID > b.MEMENTO_ID)
     return 1;
   return 0;
 }

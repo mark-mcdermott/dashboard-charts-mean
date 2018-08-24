@@ -28,7 +28,7 @@ module.exports.importFile = function(filePath, fileHeaders, modelName) {
               item.save(function (err) {
                   res.push(err);
                   if (res.length === csvData.length) {
-                      console.log('saved bloodpressure data to mongo')
+                      console.log('saved data to mongo')
                       process.exit()
                   }
               });

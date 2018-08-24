@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const BloodPressureSchema = new Schema({
+  id: {type: String},
   date: {type: String},
   top: {type: String},
   bottom: {type: String},
-  id: {type: String},
+  timestamp: {type: String},
   comment: {type: String},
-  MEMENTO_ID: {type: String}
 }, { collection: 'bloodpressure'});
 
 module.exports = mongoose.model('BloodPressure', BloodPressureSchema, 'bloodpressure');

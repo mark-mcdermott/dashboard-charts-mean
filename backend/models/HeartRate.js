@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let HeartRateSchema = new Schema({
-    _id: {type: String},
+    id: {type: String},
     timestamp: {type: String},
     date: {type: String},
     start: {type: String},

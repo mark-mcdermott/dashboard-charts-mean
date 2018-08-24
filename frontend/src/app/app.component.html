@@ -13,8 +13,45 @@
 
   <div class="content">
 
-    <div fxLayout="row" fxLayout.sm="column">
+    <div class="row" fxLayout="row" fxLayout.sm="column">
+      <mat-card fxFlex="49%" class="chart-card" id="firstCard">
+        <mat-card-header>
+          <mat-card-title>Weight</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-weight chartName="weight"></app-weight>
+        </mat-card-content>
+      </mat-card>
+      <mat-card fxFlex="49%" fxFlexOffset="2%" class="chart-card">
+        <mat-card-header>
+          <mat-card-title>Heart Rate</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-heart-rate chartName="heart-rate"></app-heart-rate>
+        </mat-card-content>
+      </mat-card>
+    </div> <!-- row -->
 
+    <div class="row" fxLayout="row" fxLayout.sm="column">
+      <mat-card fxFlex="49%" class="chart-card" id="firstCard">
+        <mat-card-header>
+          <mat-card-title>Meditation</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-meditation chartName="meditation"></app-meditation>
+        </mat-card-content>
+      </mat-card>
+      <mat-card fxFlex="49%" fxFlexOffset="2%" class="chart-card">
+        <mat-card-header>
+          <mat-card-title>Sleep</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-sleep chartName="sleep"></app-sleep>
+        </mat-card-content>
+      </mat-card>
+    </div> <!-- row -->
+
+    <div class="row" fxLayout="row" fxLayout.sm="column">
       <mat-card fxFlex="49%" class="chart-card" id="firstCard">
         <mat-card-header>
           <mat-card-title>Blood Pressure</mat-card-title>
@@ -23,16 +60,14 @@
           <app-blood-pressure chartName="blood-pressure"></app-blood-pressure>
         </mat-card-content>
       </mat-card>
-
       <mat-card fxFlex="49%" fxFlexOffset="2%" class="chart-card">
         <mat-card-header>
           <mat-card-title>Drinks</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p>test</p>
+          <app-drink chartName="drinks"></app-drink>
         </mat-card-content>
       </mat-card>
-
     </div> <!-- row -->
 
   </div> <!-- .content -->
